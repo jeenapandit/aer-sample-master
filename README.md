@@ -1,41 +1,74 @@
-1. Getting started:  
-    1. Prerequisites: node and npm  
-        1. open two separate terminal sessions:  
-            * in one terminal **cd sample-master/internal**  
-            * in the other terminal **cd sample-master/external**  
-        1. run **npm install** in each terminal
-        1. run **node server.js** in the *internal* terminal
-        1. run **npm start** in the *external* terminal
-        1. Open a browser and navigate to http://localhost:8080
+# 🎉 Event Manager Application
 
-1. The sample app  
-Uses nodejs with the express web server on both server and client microservices.  
-The internal service receives REST requests on port 8082 and returns mock data.  
-The external service unpacks json from the internal service into a html template in the Views folder and returns it to the browser on port 8080.
+A simple event management application built with Node.js, Express, and Handlebars templating.
 
-1. Dependencies  
-The internal and external both use the following npm packages:
+## 🚀 Getting Started
 
-   * express: a web server  
-     * https://www.npmjs.com/package/express  
-   * body-parser to convert json and form data in the request into parameters.  
-     * https://www.npmjs.com/package/body-parser  
-   * mocha, chai and supertest (for unit testing)  
-     * https://www.npmjs.com/package/mocha  
-     * https://www.npmjs.com/package/chai  
-     * https://www.npmjs.com/package/supertest  
-   * nyc for code coverage reporting  
-     *  https://www.npmjs.com/package/nyc  
-     
-   The external service uses the following additional libraries:
+### Prerequisites
+- **Node.js** (v12 or higher)
+- **npm** (Node Package Manager)
 
-   * express-handlebars ( a templating library)  
-     * https://github.com/ericf/express-handlebars  
-   * nock (for mocking the api call)  
-     * https://www.npmjs.com/package/nock
+### Installation & Setup
 
-1. Windows users
-The external/package.json file uses linux-style syntax for environment variables.
-Windows users will need to modify the code in order to run the sample locally during development, e.g.
-    *     **"start": "set SERVER=http://localhost:8082&& node server.js"**,
-    *     **"test": "set SERVER=http://localhost:8082&& nyc mocha"**
+1. **Clone and navigate to the project directory**
+   ```bash
+   cd sample-master/aer-sample-master
+   ```
+
+2. **Open two separate terminal sessions:**
+
+   **Terminal 1 - Internal Service (Backend):**
+   ```bash
+   cd internal
+   npm install
+   node server.js
+   ```
+   
+   **Terminal 2 - External Service (Frontend):**
+   ```bash
+   cd external
+   npm install
+   npm start
+   ```
+
+3. **Access the application**
+   - Open your browser and navigate to: **http://localhost:8080**
+
+## 📖 Application Overview
+
+This sample application demonstrates a **microservices architecture** using Node.js and Express:
+
+- **🔧 Internal Service (Port 8082)**: Backend API that handles REST requests and returns mock event data
+- **🌐 External Service (Port 8080)**: Frontend web server that renders HTML templates using data from the internal service
+- **🎨 Handlebars Templates**: Dynamic HTML rendering with styled components
+
+## 🧪 Running Tests
+
+```bash
+cd external
+npm test
+```
+
+## 📁 Project Structure
+
+```
+sample-master/
+├── external/                 # Frontend service
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   └── default.hbs  # Main layout template
+│   │   ├── home.hbs         # Events list template
+│   │   └── error_message.hbs # Error page template
+│   ├── test/
+│   ├── server.js            # Frontend server
+│   └── package.json
+├── internal/                 # Backend service
+│   ├── test/
+│   ├── server.js            # Backend API
+│   └── package.json
+└── README.md
+```
+
+---
+
+**Happy Coding! 🚀**
