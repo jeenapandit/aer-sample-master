@@ -1,8 +1,16 @@
-<ul >
+<div style="margin-bottom: 30px;">
+  <h2 style="color: #34495e; margin-bottom: 20px; font-size: 1.5rem; border-bottom: 2px solid #e0eafc; padding-bottom: 10px;">📅 Current Events</h2>
+  
   {{#events}}
-    <li>
-        <h2>{{ title }}</h2>
-        <p>{{ description }}</p>
-    </li>
+    <div style="background: #f8f9fb; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 15px; border-left: 4px solid #2980b9; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: box-shadow 0.3s ease;">
+      <h3 style="color: #2c3e50; margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 600;">{{ title }}</h3>
+      <p style="color: #5a6c7d; margin: 0; line-height: 1.5; font-size: 1rem;">{{ description }}</p>
+    </div>
   {{/events}}
-</ul>
+  
+  {{#unless events}}
+    <div style="text-align: center; padding: 40px; background: #f8f9fb; border: 2px dashed #bdc3c7; border-radius: 8px; color: #7f8c8d;">
+      <p style="margin: 0; font-size: 1.1rem;">🎉 No events yet! Add your first event below.</p>
+    </div>
+  {{/unless}}
+</div>
