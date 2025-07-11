@@ -32,7 +32,23 @@ A simple event management application built with Node.js, Express, and Handlebar
    ```
 
 3. **Access the application**
-   - Open your browser and navigate to: **http://localhost:8080**
+  - Open your browser and navigate to: **http://localhost:8080**
+
+  - If running on an EC2 server: 
+      - Use your EC2 instance's public IP or DNS in the browser:  
+        **http://&lt;EC2-PUBLIC-IP&gt;:8080**  
+        Replace &lt;EC2-PUBLIC-IP&gt; with your EC2's public IP or DNS.
+      ```
+      Make sure port 8080 is open in your EC2 security group settings.
+      To add a rule if not already present:
+        1. Go to your EC2 dashboard in AWS Console.  
+        2. Select your instance and find its Security Group.  
+        3. Edit inbound rules and add a rule:  
+           - Type: Custom TCP
+           - Port Range: 8080
+           - Source: 0.0.0.0/0 (or restrict as needed)  
+        4. Save the changes.
+      ```
 
 ## 📖 Application Overview
 
