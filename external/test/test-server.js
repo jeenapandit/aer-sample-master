@@ -73,8 +73,8 @@ describe('POST /event', function () {
       .reply(200, {
         "status": 200,
         "events": [
-          { title: 'an event', id: 1, description: 'something really cool' },
-          { title: 'another event', id: 2, description: 'something even cooler' },
+          { title: 'Product Launch Meeting', id: 1, description: 'Final preparations and coordination for the new feature release' },
+          { title: 'Office Happy Hour', id: 2, description: 'End-of-week celebration with drinks, snacks, and networking' },
           data
         ]
       });
